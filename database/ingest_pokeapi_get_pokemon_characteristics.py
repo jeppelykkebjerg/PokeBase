@@ -54,7 +54,6 @@ if __name__ == "__main__":
         print(f'Fetching data from: {row.url} ')
         pokemon_char_data = get_pokemon_characteristics(row.url)
 
-        # print(pokemon_char_data.type)
         insert_pokemon_characteristics(con, pokemon_char_data, "pokemon_characteristics")
 
 
