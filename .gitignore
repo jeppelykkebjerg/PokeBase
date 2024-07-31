@@ -163,3 +163,4 @@ cython_debug/
 
 #
 pokebase.db
+testdata

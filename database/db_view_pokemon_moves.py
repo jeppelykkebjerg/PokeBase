@@ -2,7 +2,7 @@ import db_connection as dbcon
 
 con = dbcon.PokeBaseConnection()
 
-view_name = "abilities"
+view_name = "moves"
 
 sql = f"""
     CREATE OR REPLACE VIEW prep_pokemon_{view_name} AS 
@@ -10,7 +10,7 @@ sql = f"""
     	SELECT 
     		from_json(
     			json(
-    				json_extract(characteristics , '$.abilities')
+    				json_extract(characteristics , '$.moves')
     			),'["JSON"]') AS json_col,
     	url
     	from pokebase.main.pokemon_characteristics pc
@@ -18,12 +18,12 @@ sql = f"""
 
     SELECT 
     	url, 
-    	replace(abilities.ability.name, '"', '') AS ability_name,
-    	abilities.is_hidden AS ability_is_hidden,
-    	abilities.slot AS ability_slot
+    	replace(moves.move.name, '"', '') AS move_name,
+    	replace(moves.move.url, '"', '') as move_url,
+    	moves.version_group_details as move_version_group_details
     FROM (
     SELECT 
-    	unnest(json_col) AS abilities,
+    	unnest(json_col) AS moves,
     	url
     FROM cte
     ) AS A;

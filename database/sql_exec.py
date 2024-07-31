@@ -3,9 +3,9 @@ import db_connection as dbcon
 con = dbcon.PokeBaseConnection()
 
 sql = """
-    TRUNCATE table pokebase.main.pokemon_characteristics;
+    SELECT * FROM 'D:/DataEngineering/PokeBase/database/testdata/pokemon_characteristics.json';
 
 """
 
-con.execute(sql)
+print(con.execute(sql).fetchall())
 con.close()
