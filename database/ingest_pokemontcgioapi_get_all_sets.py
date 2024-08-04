@@ -21,7 +21,7 @@ def get_object():
     return pokemon_sets_df
 
 def write_dataframe_to_json(data_frame, pokemontcgioapi_object, uuid):
-#Persist as json file
+    #Persist as json file
     df = data_frame
     #Persist as json file
     write_path_parent = os.path.dirname(os.path.realpath(__file__))

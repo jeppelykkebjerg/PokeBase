@@ -37,4 +37,4 @@ def write_dataframe_to_json(data_frame, pokemontcgioapi_object, uuid):
 if __name__ == "__main__":
      pokemon_cards_df = get_object()
      # write_dataframe_to_json(pokemon_cards_df, pokemontcgioapi_object, uuid.uuid4())
-     print(pokemon_cards_df)
+     print(pokemon_cards_df.shape[0])
