@@ -12,7 +12,7 @@ POKEMONTCG_IO_API_KEY=os.getenv("POKEMONTCG_IO_API_KEY")
 # script variables
 pokemontcgioapi_object = 'cards'
 
-def get_object():
+def get_object() -> pd.DataFrame:
      #Get all cards
      pokemon_cards_list = pokemontcgsdk.Card.where(q='cardmarket.updatedAt:2024\/08\/02')
      pokemon_cards_df = pd.DataFrame(pokemon_cards_list)
